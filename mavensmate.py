@@ -397,7 +397,7 @@ class OpenProjectCommand(sublime_plugin.WindowCommand):
             subl_location = settings.get('mm_subl_location', '/usr/local/bin/subl')
             debug('subl location is: ', subl_location)
             debug('running command: ')
-            command = "'{0}' --project '{1}'".format(subl_location, project_file_location)
+            command = [subl_location, '--project', project_file_location]
             debug(command)
             subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, shell=True)
         else:
